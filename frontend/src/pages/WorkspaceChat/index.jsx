@@ -43,7 +43,7 @@ function ShowWorkspaceChat() {
   }, []);
 
   return (
-    <div className="w-screen h-screen overflow-hidden bg-primary dark:bg-stone-700 flex-col">
+    <div className="w-screen h-screen overflow-hidden bg-primary dark:bg-stone-700 flex">
       {!isMobile && <Sidebar />}
       <WorkspaceChatContainer loading={loading} workspace={workspace} />
     </div>

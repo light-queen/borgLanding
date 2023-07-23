@@ -38,7 +38,7 @@ export default function Sidebar() {
     <>
       <div
         ref={sidebarRef}
-        className="transition-all duration-500 relative m-[16px] rounded-[26px] bg-white dark:bg-black-900 min-w-[15.5%] p-[18px] shadow-lg"
+        className="transition-all duration-500 relative my-[16px] mx-2 rounded-lg bg-white dark:bg-black-900 max-w-[20%] p-[18px] shadow-lg"
       >
         <div className="w-full h-full flex flex-col overflow-x-hidden items-between">
           {/* Header Information */}
