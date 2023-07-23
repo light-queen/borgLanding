@@ -7,6 +7,7 @@ import {
   Menu,
   Plus,
   Tool,
+  CheckSquare
 } from "react-feather";
 import IndexCount from "./IndexCount";
 import LLMStatus from "./LLMStatus";
@@ -43,9 +44,12 @@ export default function Sidebar() {
         <div className="w-full h-full flex flex-col overflow-x-hidden items-between">
           {/* Header Information */}
           <div className="flex w-full items-center justify-between">
-            <p className="text-xl font-base text-slate-600 dark:text-slate-200">
-              ecocheckr
-            </p>
+			<a className="flex">
+				<CheckSquare/>
+				<p className="ml-2 text-xl font-base text-slate-600 dark:text-slate-200" style={{fontSize: '1.2rem'}}>
+				   ecocheckr
+				</p>
+			</a>
             <div className="flex gap-x-2 items-center text-slate-500">
               <button
                 onClick={showSystemSettingsModal}

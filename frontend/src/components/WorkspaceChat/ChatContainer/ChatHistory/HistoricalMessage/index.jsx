@@ -4,6 +4,7 @@ import Jazzicon from "../../../../UserIcon";
 import { v4 } from "uuid";
 import { decode as HTMLDecode } from "he";
 import renderMarkdown from "../../../../../utils/chat/markdown";
+import { Book, Settings, HelpCircle, PlayCircle, CheckSquare } from "react-feather";
 
 function HistoricalMessage({
   message,
@@ -20,14 +21,12 @@ function HistoricalMessage({
 
   if (role === "user") {
     return (
-      <div className="flex justify-start pt-3 items-start" style={{borderTop: `1px solid #d7d7d7`}}>
-        <div className="mr-2 py-1 px-12 w-fit md:max-w-[75%] ">
-          <span
-            className={`inline-block p-2 rounded-lg whitespace-pre-line text-slate-800 dark:text-slate-200 `}
-		    style={{fontSize: '1.7rem', lineHeight: '2rem'}}
-          >
-            {message}
-          </span>
+      <div className="flex justify-start  items-end " >
+        <div className="ml-2 pb-3 px-12 w-100 ">
+		<a className="flex text-slate-800 mt-5">
+		  <CheckSquare className="h-6 w-6 "/>
+		  <p  className="font-semibold text-xl ml-2 text-slate-800 ">{message}</p>
+		</a>
         </div>
       </div>
     );
@@ -50,12 +49,15 @@ function HistoricalMessage({
   }
 
   return (
-    <div ref={replyRef} className="flex justify-start items-end mb-4">
-      <div className="ml-2 pb-3 px-12  w-100 dark:bg-stone-700 rounded-t-2xl rounded-br-2xl rounded-bl-sm">
+    <div ref={replyRef} className="flex justify-start items-end mb-4 border shadow mx-14 rounded">
+      <div className="ml-2 pb-3  px-3  w-100 dark:bg-stone-700 rounded-t-2xl rounded-br-2xl rounded-bl-sm">
         <Citations sources={sources} />
-	    <p className="mt-4 font-semibold" style={{color:'blue'}}>🔎 Answer</p>
+		<a className="flex text-secondary mt-5">
+		  <PlayCircle className="h-6 w-6 "/>
+		  <p  className="font-semibold ml-1 ">Answer</p>
+		</a>
         <span
-          className="whitespace-pre-line font-[500] text-sm md:text-base flex flex-col gap-y-1"
+          className="whitespace-pre-line font-[500] text-sm md:text-base flex flex-col gap-y-1 mt-3"
           dangerouslySetInnerHTML={{ __html: renderMarkdown(message) }}
         />
       </div>
@@ -69,8 +71,11 @@ const Citations = ({ sources = [] }) => {
 
   return (
     <div className="flex flex-col mt-4 justify-left">
-	  <p style={{color: 'blue'}} className="font-semibold">📚 Sources</p>
-	  <div className="w-full flex flex-wrap items-center gap-4 mt-1 doc__source">
+	  <a className="flex text-secondary">
+		  <Book className="h-6 w-6 "/>
+		  <p  className="font-semibold ml-1 ">Sources</p>
+	  </a>
+	  <div className="w-full flex flex-wrap items-center gap-4 mt-1 doc__source mt-4">
 		{sources.map((source) => {
 		  const { id = null, title, url } = source;
 		  const handleClick = () => {
