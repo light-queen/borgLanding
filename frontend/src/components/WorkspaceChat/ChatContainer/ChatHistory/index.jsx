@@ -1,5 +1,5 @@
 import { Frown } from "react-feather";
-import HistoricalMessage from "./HistoricalMessage";
+import {HistoricalMessage} from "./HistoricalMessage";
 import PromptReply from "./PromptReply";
 
 export default function ChatHistory({ history = [], workspace }) {

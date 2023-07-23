@@ -6,7 +6,7 @@ import { decode as HTMLDecode } from "he";
 import renderMarkdown from "../../../../../utils/chat/markdown";
 import { Book, Settings, HelpCircle, PlayCircle, CheckSquare } from "react-feather";
 
-function HistoricalMessage({
+export const HistoricalMessage = function HistoricalMessage({
   message,
   role,
   workspace,
@@ -65,7 +65,7 @@ function HistoricalMessage({
   );
 }
 
-const Citations = ({ sources = [] }) => {
+export const Citations = ({ sources = [] }) => {
   const [show, setShow] = useState(false);
   if (sources.length === 0) return null;
 
@@ -100,4 +100,3 @@ const Citations = ({ sources = [] }) => {
   );
 };
 
-export default memo(HistoricalMessage);
