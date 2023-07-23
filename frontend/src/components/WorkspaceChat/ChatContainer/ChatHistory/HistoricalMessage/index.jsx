@@ -20,15 +20,15 @@ function HistoricalMessage({
 
   if (role === "user") {
     return (
-      <div className="flex justify-end mb-4 items-start">
-        <div className="mr-2 py-1 px-4 w-fit md:max-w-[75%] bg-slate-200 dark:bg-amber-800 rounded-b-2xl rounded-tl-2xl rounded-tr-sm">
+      <div className="flex justify-start pt-3 items-start" style={{borderTop: `1px solid #d7d7d7`}}>
+        <div className="mr-2 py-1 px-12 w-fit md:max-w-[75%] ">
           <span
-            className={`inline-block p-2 rounded-lg whitespace-pre-line text-slate-800 dark:text-slate-200 font-[500] md:font-semibold text-sm md:text-base`}
+            className={`inline-block p-2 rounded-lg whitespace-pre-line text-slate-800 dark:text-slate-200 `}
+		    style={{fontSize: '1.7rem', lineHeight: '2rem'}}
           >
             {message}
           </span>
         </div>
-        <Jazzicon size={30} user={{ uid: "user" }} />
       </div>
     );
   }
@@ -37,7 +37,7 @@ function HistoricalMessage({
     return (
       <div className="flex justify-start mb-4 items-end">
         <Jazzicon size={30} user={{ uid: workspace.slug }} />
-        <div className="ml-2 max-w-[75%] bg-orange-100 dark:bg-stone-700 rounded-t-2xl rounded-br-2xl rounded-bl-sm">
+        <div className="ml-2 max-w-[75%] bg-primary dark:bg-stone-700 rounded-t-2xl rounded-br-2xl rounded-bl-sm">
           <span
             className={`inline-block p-2 rounded-lg bg-red-50 text-red-500`}
           >
@@ -51,11 +51,11 @@ function HistoricalMessage({
 
   return (
     <div ref={replyRef} className="flex justify-start items-end mb-4">
-      <div className="ml-2 py-3 px-12 overflow-x-scroll w-100 dark:bg-stone-700 rounded-t-2xl rounded-br-2xl rounded-bl-sm">
+      <div className="ml-2 pb-3 px-12  w-100 dark:bg-stone-700 rounded-t-2xl rounded-br-2xl rounded-bl-sm">
         <Citations sources={sources} />
-	    <p className="mt-4"> Answer</p>
+	    <p className="mt-4 font-semibold" style={{color:'blue'}}>🔎 Answer</p>
         <span
-          className="whitespace-pre-line text-slate-800 dark:text-slate-200 font-[500] md:font-semibold text-sm md:text-base flex flex-col gap-y-1"
+          className="whitespace-pre-line font-[500] text-sm md:text-base flex flex-col gap-y-1"
           dangerouslySetInnerHTML={{ __html: renderMarkdown(message) }}
         />
       </div>
@@ -69,7 +69,7 @@ const Citations = ({ sources = [] }) => {
 
   return (
     <div className="flex flex-col mt-4 justify-left">
-	  <p>Sources</p>
+	  <p style={{color: 'blue'}} className="font-semibold">📚 Sources</p>
 	  <div className="w-full flex flex-wrap items-center gap-4 mt-1 doc__source">
 		{sources.map((source) => {
 		  const { id = null, title, url } = source;

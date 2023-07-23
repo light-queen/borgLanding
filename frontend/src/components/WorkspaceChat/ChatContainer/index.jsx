@@ -68,7 +68,7 @@ export default function ChatContainer({ workspace, knownHistory = [] }) {
   return (
     <div
       style={{ height: isMobile ? "100%" : "calc(75% - 32px)" }}
-      className="transition-all duration-500 relative md:ml-[2px] md:mr-[8px] md:my-[16px] md:rounded-[26px] bg-white dark:bg-black-900 w-full md:min-w-[82%] p-[18px] h-full overflow-y-scroll"
+      className="transition-all duration-500 relative m-[16px] md:rounded-[26px] bg-white dark:bg-black-900   p-[18px] h-full shadow-lg"
     >
       {isMobile && <SidebarMobileHeader />}
       <div className="flex flex-col h-full w-full flex">
