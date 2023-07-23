@@ -14,7 +14,7 @@ sudo systemctl start docker
   
 sudo apt-get install -y git  
   
-git clone https://github.com/Mintplex-Labs/anything-llm.git /home/anything-llm  
+git clone https://github.com/ecocheckr/ecocheckr.git /home/anything-llm  
 cd /home/anything-llm/docker  
   
 cat >> .env << END

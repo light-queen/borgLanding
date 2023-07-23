@@ -8,3 +8,14 @@ v-env
 .DS_Store
 aws_cf_deploy_anything_llm.json
 yarn.lock
+
+# Ignore Terraform state files
+*.tfstate
+*.tfstate.* 
+
+# Ignore Terraform .terraform directory
+.terraform/
+
+# Ignore crash log files
+crash.log
+
