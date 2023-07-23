@@ -86,9 +86,9 @@ export const Citations = ({ sources = [] }) => {
 			<button
 			  key={id || v4()}
 			  onClick={handleClick}
-			  className="italic transition-all duration-300 w-fit bg-gray-400 text-gray-900 py-[1px] hover:text-slate-200 hover:bg-gray-500 hover:dark:text-gray-900 dark:bg-stone-400 dark:hover:bg-stone-300 rounded-full px-2 text-xs leading-tight"
+			  className=" transition-all duration-300 w-fit border p-3 text-gray-900  hover:text-slate-200 hover:bg-gray-500 hover:dark:text-gray-900 dark:bg-stone-400 dark:hover:bg-stone-300 rounded text-sm  "
 			>
-			  "{HTMLDecode(title)}"
+			  <a>{HTMLDecode(title)}</a>
 			</button>
 		  );
 		})}

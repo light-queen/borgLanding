@@ -1,5 +1,5 @@
 import { memo, useEffect, useRef, useState } from "react";
-import { AlertTriangle, PlayCircle } from "react-feather";
+import { AlertTriangle, PlayCircle, Book } from "react-feather";
 import Jazzicon from "../../../../UserIcon";
 import { v4 } from "uuid";
 import { decode as HTMLDecode } from "he";
@@ -22,18 +22,34 @@ function PromptReply({
   }, [replyRef.current]);
 
   if (!reply && !sources.length === 0 && !pending && !error) return null;
-  if (pending) {
-    return (
-      <div className="chat__message flex justify-start mb-4 items-end">
-        <Jazzicon size={30} user={{ uid: workspace.slug }} />
-        <div className="ml-2 pt-2 px-6 w-fit md:max-w-[75%] bg-primary dark:bg-stone-700 rounded-t-2xl rounded-br-2xl rounded-bl-sm">
-          <span className={`inline-block p-2`}>
-            <div className="dot-falling"></div>
-          </span>
-        </div>
+  if (pending) {return(
+    <div
+      key={uuid}
+      ref={replyRef}
+      className="flex justify-start items-end mb-4 border shadow mx-14 roundedmb-4 flex justify-start items-end"
+    >
+      <div className="ml-2 pb-3  px-3  w-100 dark:bg-stone-700 rounded-t-2xl rounded-br-2xl rounded-bl-sm">
+		<a className="flex text-secondary mt-5">
+		  <Book className="h-6 w-6 "/>
+		  <p  className="font-semibold ml-1 ">Sources</p>
+		</a>
+        <span
+          className="whitespace-pre-line font-[500] text-sm md:text-base flex flex-col gap-y-1 mt-6"
+        >
+            <div className="ml-4 mb-3 dot-falling"></div>
+		</span>
+		<a className="flex text-secondary mt-5">
+		  <PlayCircle className="h-6 w-6 "/>
+		  <p  className="font-semibold ml-1 ">Answer</p>
+		</a>
+        <span
+          className="whitespace-pre-line font-[500] text-sm md:text-base flex flex-col gap-y-1 mt-6"
+        >
+            <div className="ml-4 mb-3  dot-falling"></div>
+		</span>
       </div>
-    );
-  }
+    </div>
+);}
 
   if (error) {
     return (
