@@ -23,9 +23,8 @@ export default function Main() {
   }
 
   return (
-    <div className="w-screen h-screen overflow-hidden bg-orange-100 dark:bg-stone-700 flex">
-      {!isMobile && <Sidebar />}
-      <DefaultChatContainer />
+    <div className="w-screen h-screen overflow-hidden bg-orange-100 dark:bg-stone-700 flex-col">
+      <Sidebar />
     </div>
   );
 }
