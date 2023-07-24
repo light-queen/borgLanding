@@ -340,7 +340,7 @@ const Pinecone = {
     Context:
     ${sourceDocuments
       .map(({metadata: {text, title}}, index) => {
-        return `[START SOURCE #${index}, ${title}]:\n${text}\n[END SOURCE #${index}, ${title}]\n\n`;
+        return `[START ${title}]:\n${text}\n[END ${title}]\n\n`;
       })
       .join("")}`,
     };

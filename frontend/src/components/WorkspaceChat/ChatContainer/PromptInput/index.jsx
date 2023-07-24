@@ -136,9 +136,6 @@ const Tracking = memo(({ workspaceSlug }) => {
 
   return (
     <div className="flex flex-col md:flex-row w-full justify-center items-center gap-2 mb-2 px-4 mx:px-0">
-      <p className="bg-stone-600 text-slate-400 text-xs px-2 rounded-lg font-mono text-center">
-        Chat mode: {chatMode}
-      </p>
       <p className="text-slate-400 text-xs text-center">
         Responses from system may produce inaccurate or invalid responses - use
         with caution.
@@ -151,12 +148,8 @@ function CommandMenu({ workspace, show, handleClick, hide }) {
   if (!show) return null;
   const COMMANDS = [
     {
-      cmd: "/conversation",
-      description: "- switch to chat mode (remembers recent chat history) .",
-    },
-    {
-      cmd: "/query",
-      description: "- switch to query mode (does not remember previous chats).",
+      cmd: "/ecocheckr",
+      description: "- ecocheckr answer with the provided sources",
     },
     { cmd: "/reset", description: "- clear current chat history." },
   ];
