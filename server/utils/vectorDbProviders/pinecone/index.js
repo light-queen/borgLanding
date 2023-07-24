@@ -338,9 +338,9 @@ const Pinecone = {
       role: "system",
       content: `${chatPrompt(workspace)}
     Context:
-    ${contextTexts
-      .map((text, i) => {
-        return `[CONTEXT ${i}]:\n${text}\n[END CONTEXT ${i}]\n\n`;
+    ${sourceDocuments
+      .map(({metadata: {text, title}}, index) => {
+        return `[START SOURCE #${index}, ${title}]:\n${text}\n[END SOURCE #${index}, ${title}]\n\n`;
       })
       .join("")}`,
     };

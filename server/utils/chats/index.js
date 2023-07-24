@@ -60,6 +60,7 @@ function grepCommand(message) {
 }
 
 async function chatWithWorkspace(workspace, message, chatMode = "chat") {
+  const chatMode = "chat"; // overwriting this, we want only one modality
   const uuid = uuidv4();
   const openai = new OpenAi();
   const VectorDb = getVectorDbClass();
