@@ -291,7 +291,10 @@ const Pinecone = {
       k: 5,
       returnSourceDocuments: true,
     });
+	console.log("VectorDBQAChain");
+	console.log(input);
     const response = await chain.call({ query: input });
+	console.log(response);
     return {
       response: response.text,
       sources: curateSources(response.sourceDocuments),
@@ -309,6 +312,10 @@ const Pinecone = {
       workspace = {},
       chatHistory = [],
     } = reqBody;
+
+	console.log('Pinecone.chat');
+	console.log(input);
+
     if (!namespace || !input) throw new Error("Invalid request body");
 
     const { pineconeIndex } = await this.connect();
@@ -323,6 +330,10 @@ const Pinecone = {
       namespace,
       queryVector
     );
+	
+	console.log(contextTexts);
+	console.log(sourceDocuments);
+
     const prompt = {
       role: "system",
       content: `${chatPrompt(workspace)}
@@ -334,11 +345,16 @@ const Pinecone = {
       .join("")}`,
     };
 
-    const memory = [prompt, ...chatHistory, { role: "user", content: input }];
+	console.log(prompt);
+
+    const empty_chat_history = [];
+    const memory = [prompt, ...empty_chat_history, { role: "user", content: input }];
 
     const responseText = await this.getChatCompletion(this.openai(), memory, {
       temperature: workspace?.openAiTemp ?? 0.7,
     });
+
+	console.log(responseText);
 
     return {
       response: responseText,
