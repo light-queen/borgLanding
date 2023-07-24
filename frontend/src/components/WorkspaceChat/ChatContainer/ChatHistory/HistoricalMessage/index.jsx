@@ -13,6 +13,8 @@ export const HistoricalMessage = function HistoricalMessage({
   sources = [],
   error = false,
 }) {
+  console.log(message);
+  console.log(sources);
   const replyRef = useRef(null);
   useEffect(() => {
     if (replyRef.current)
@@ -57,7 +59,7 @@ export const HistoricalMessage = function HistoricalMessage({
 		  <p  className="font-semibold ml-1 ">Answer</p>
 		</a>
         <span
-          className="whitespace-pre-line font-[500] text-sm md:text-base flex flex-col gap-y-1 mt-3"
+          className="text-sm md:text-base flex flex-col gap-y-1 mt-3"
           dangerouslySetInnerHTML={{ __html: renderMarkdown(message) }}
         />
       </div>

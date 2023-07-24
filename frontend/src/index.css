@@ -11,6 +11,16 @@ body {
   background-color: white;
 }
 
+ol {
+	list-style-type: disc;
+  margin-left: 1em;
+  padding-left: 1em;
+}
+
+li {
+  margin-bottom: 0.5em;
+}
+
 a {
   color: inherit;
   text-decoration: none;

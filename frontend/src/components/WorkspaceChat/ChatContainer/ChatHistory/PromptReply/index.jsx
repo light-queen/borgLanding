@@ -81,7 +81,7 @@ function PromptReply({
 		  <p  className="font-semibold ml-1 ">Answer</p>
 		</a>
         <span
-          className="whitespace-pre-line font-[500] text-sm md:text-base flex flex-col gap-y-1 mt-3"
+          className="text-sm md:text-base flex flex-col gap-y-1 mt-3"
           dangerouslySetInnerHTML={{ __html: renderMarkdown(reply) }}
         />
       </div>
