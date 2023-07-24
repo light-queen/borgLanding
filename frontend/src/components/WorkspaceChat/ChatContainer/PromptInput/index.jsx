@@ -84,7 +84,7 @@ export default function PromptInput({
             value={message}
             className="cursor-text max-h-[100px] md:min-h-[40px] block mx-2 md:mx-4 p-2.5 w-full text-[16px] md:text-sm rounded-lg border bg-gray-50 border-gray-300 placeholder-gray-400 text-gray-900 dark:text-white dark:bg-stone-600 dark:border-stone-700 dark:placeholder-stone-400"
             placeholder={
-                "Ask follow-up..."
+                "Ask Ecochecker.."
             }
           />
           <button

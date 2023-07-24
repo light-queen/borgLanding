@@ -34,8 +34,10 @@ function ShowWorkspaceChat() {
 
   useEffect(() => {
     async function getWorkspace() {
-      if (!slug) return;
-      const _workspace = await Workspace.bySlug(slug);
+	  const _slug = slug ? slug : "environmental-claims"
+      const _workspace = await Workspace.bySlug(_slug);
+	  console.log(_workspace, _slug)
+	  if (!_workspace) return;
       setWorkspace(_workspace);
       setLoading(false);
     }
