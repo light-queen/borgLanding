@@ -11,6 +11,10 @@ body {
   background-color: white;
 }
 
+code {
+	color: #17b916;
+}
+
 ol {
 	list-style-type: disc;
   margin-left: 1em;

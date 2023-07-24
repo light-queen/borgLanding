@@ -1,5 +1,6 @@
 import { encode as HTMLEncode } from "he";
 import markdownIt from "markdown-it";
+
 const markdown = markdownIt({
   html: true,
   typographer: true,
@@ -9,6 +10,7 @@ const markdown = markdownIt({
     )}<pre></div>`;
   },
 });
+
 
 window.copySnippet = function () {
   if (!event?.target) return false;
