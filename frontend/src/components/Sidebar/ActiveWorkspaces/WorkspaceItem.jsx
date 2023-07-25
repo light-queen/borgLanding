@@ -1,4 +1,4 @@
-import { ChevronRight, ChevronDown } from 'react-feather';
+import { ChevronRight, ChevronDown, MoreHorizontal } from 'react-feather';
 import { useState } from 'react';
 import paths from "../../../utils/paths";
 
@@ -8,7 +8,7 @@ function WorkspaceItem({ workspace, isActive, isDev, setSelectedWs, showModal })
   return (
     <div
       key={workspace.id}
-      className="flex flex-col items-start justify-between w-full"
+      className="flex flex-col items-start justify-between w-full group" // Add "group" here
     >
       <div className="flex items-center w-full hover:bg-slate-100 p-1">
         <div
@@ -35,17 +35,15 @@ function WorkspaceItem({ workspace, isActive, isDev, setSelectedWs, showModal })
           {workspace.name}
         </a>
 
-        {isDev && (
-          <button
-            onClick={() => {
-              setSelectedWs(workspace);
-              showModal();
-            }}
-            className="rounded-md bg-stone-200 p-2 h-[36px] w-[15%] flex items-center justify-center text-slate-800 hover:bg-stone-300 group dark:bg-stone-800 dark:text-slate-200 dark:hover:bg-stone-900 dark:border dark:border-stone-800 ml-auto"
-          >
-            <Settings className="h-3.5 w-3.5 transition-all duration-300 group-hover:rotate-90" />
-          </button>
-        )}
+        <button
+          onClick={() => {
+            setSelectedWs(workspace);
+            showModal();
+          }}
+          className="p-1 flex items-center justify-center rounded text-slate-800 hover:bg-slate-200 group dark:bg-stone-8    00 dark:text-slate-200 dark:hover:bg-stone-900 dark:border dark:border-stone-800 ml-auto opacity-0 group-hover:opacity-100" // Control visibility here
+        >
+          <MoreHorizontal className="h-3.5 w-3.5 transition-all duration-300 group-hover:rotate-90" />
+        </button>
       </div>
 
       {isExpanded && (
