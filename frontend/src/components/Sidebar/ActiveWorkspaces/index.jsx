@@ -9,6 +9,7 @@ import ManageWorkspace, {
 import paths from "../../../utils/paths";
 import { useParams } from "react-router-dom";
 import { isDev } from '../../../utils/featureflag.js';
+import WorkspaceItem from './WorkspaceItem';
 
 export default function ActiveWorkspaces() {
   const { slug } = useParams();
@@ -43,39 +44,19 @@ export default function ActiveWorkspaces() {
 
   return (
     <>
-      {workspaces.map((workspace) => {
-        const isActive = workspace.slug === slug;
-        return (
-          <div
-            key={workspace.id}
-            className="flex gap-x-2 items-center justify-between w-full"
-          >
-            <a
-              href={isActive ? null : paths.workspace.chat(workspace.slug)}
-              className={`flex w-full shadow gap-x-2 p-2 rounded-lg h-[50px] border justify-start items-center ${
-                isActive
-                  ? "text-secondary dark:bg-stone-600"
-                  : "hover:bg-slate-100  dark:hover:bg-stone-900 "
-              }`}
-            >
-              <Book className="h-4 w-4 flex-shrink-0" />
-              <p className=" text-xs font-semibold  ">
-                {workspace.name}
-              </p>
-            </a>
-			{isDev && <button
-              onClick={() => {
-                setSelectedWs(workspace);
-                showModal();
-              }}
-              className="rounded-md bg-stone-200 p-2 h-[36px] w-[15%] flex items-center justify-center text-slate-800 hover:bg-stone-300 group dark:bg-stone-800 dark:text-slate-200 dark:hover:bg-stone-900 dark:border dark:border-stone-800"
-            >
-              <Settings className="h-3.5 w-3.5 transition-all duration-300 group-hover:rotate-90" />
-            </button>
-			}
-          </div>
-        );
-      })}
+	  {workspaces.map((workspace) => {
+		  const isActive = workspace.slug === slug;
+		  return (
+			<WorkspaceItem
+			  key={workspace.id}
+			  workspace={workspace}
+			  isActive={isActive}
+			  isDev={isDev}
+			  setSelectedWs={setSelectedWs}
+			  showModal={showModal}
+			/>
+		  );
+	  })}
       {showing && !!selectedWs && (
         <ManageWorkspace hideModal={hideModal} providedSlug={selectedWs.slug} />
       )}
