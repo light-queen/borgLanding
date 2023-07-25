@@ -20,8 +20,12 @@ export default function ActiveWorkspaces() {
   useEffect(() => {
     async function getWorkspaces() {
       const workspaces = await Workspace.all();
+	  // (alex) TODO: we should change the server API that when we ask for /workspaces
+      // we get them with .documents, now we have this weird thing going on where only 
+	  // Workspace.bySlug gets me with the document
+	  const _workspaces = await Promise.all(workspaces.map(workspace => Workspace.bySlug(workspace.slug)));
       setLoading(false);
-      setWorkspaces(workspaces);
+      setWorkspaces(_workspaces);
     }
     getWorkspaces();
   }, []);

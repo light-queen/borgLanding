@@ -26,7 +26,7 @@ function WorkspaceItem({ workspace, isActive, isDev, setSelectedWs, showModal })
 
         <a
           href={isActive ? null : paths.workspace.chat(workspace.slug)}
-          className={`flex items-center text-sm font-semibold w-full truncate ${
+          className={`flex ml-1 items-center text-sm font-semibold w-full truncate ${
             isActive
               ? "text-secondary dark:bg-stone-600"
               : "hover:bg-slate-100  dark:hover:bg-stone-900 "
@@ -46,13 +46,22 @@ function WorkspaceItem({ workspace, isActive, isDev, setSelectedWs, showModal })
         </button>
       </div>
 
-      {isExpanded && (
-        <ul className="list-disc ml-5">
-          {[{ id: 'doc1', name: 'Document 1' }, { id: 'doc2', name: 'Document 2' }].map((doc) => (
-            <li key={doc.id}>{doc.name}</li>
-          ))}
-        </ul>
-      )}
+	  {isExpanded && (
+  <ul className="list-disc ml-9">
+    {workspace.documents && Array.isArray(workspace.documents) && workspace.documents.map((doc) => {
+      let docpath = doc.docpath;
+      if (docpath.includes("custom-documents/")) {
+        docpath = docpath.replace("custom-documents/", "");
+      }
+      return (
+        <li key={doc.docpath} className="text-sm text-slate-600">
+          <div className="truncate">{docpath}</div>
+        </li>
+      )
+    })}
+  </ul>
+)}
+
     </div>
   );
 }

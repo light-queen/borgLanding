@@ -61,7 +61,7 @@ export default function Sidebar() {
           </div>
 
 	  {/* Primary Body */}
-		<div className="h-[100%] flex flex-col w-full justify-between pt-4 overflow-y-hidden">
+		<div className="h-[100%] flex flex-col w-full justify-between pt-4 ">
 		  <div className="h-auto sidebar-items dark:sidebar-items">
 			<div className="flex flex-row flex-wrap gap-y-2 pb-8 overflow-y-scroll no-scroll">
 

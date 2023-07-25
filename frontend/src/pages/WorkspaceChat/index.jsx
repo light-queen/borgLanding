@@ -36,7 +36,8 @@ function ShowWorkspaceChat() {
     async function getWorkspace() {
 	  const _slug = slug ? slug : "environmental-claims"
       const _workspace = await Workspace.bySlug(_slug);
-	  console.log(_workspace, _slug)
+	  console.log(_workspace, _slug);
+	  console.log(_workspace.documents);
 	  if (!_workspace) return;
       setWorkspace(_workspace);
       setLoading(false);

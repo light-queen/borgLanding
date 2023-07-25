@@ -13,8 +13,7 @@ export default function LLMStatus() {
 
   if (status === null) {
     return (
-      <div className="flex w-full items-center justify-start gap-x-2">
-        <p className="text-slate-400 leading-loose text-sm">LLM</p>
+      <div className="flex w-full items-center justify-start ">
         <div className="flex items-center gap-x-1 border border-slate-400 px-2 rounded-full">
           <p className="text-slate-400 leading-tight text-sm">unknown</p>
           <Circle className="h-3 w-3 stroke-slate-700 fill-slate-400 animate-pulse" />
@@ -27,8 +26,7 @@ export default function LLMStatus() {
   // need to likely start server.
   if (status === false) {
     return (
-      <div className="flex w-full items-center justify-end gap-x-2">
-        <p className="text-slate-400 leading-loose text-sm">LLM</p>
+      <div className="flex w-full items-center justify-start ">
         <div className="flex items-center gap-x-1 border border-red-400 px-2 bg-red-200 rounded-full">
           <p className="text-red-700 leading-tight text-sm">offline</p>
           <AlertCircle className="h-3 w-3 stroke-red-100 fill-red-400" />
@@ -38,8 +36,7 @@ export default function LLMStatus() {
   }
 
   return (
-    <div className="flex w-full items-center justify-end gap-x-2">
-      <p className="text-slate-400 leading-loose text-sm">LLM</p>
+    <div className="flex w-full items-center justify-start ">
       <div className="flex items-center gap-x-1 border border-slate-400 px-2 rounded-full">
         <p className="text-slate-400 leading-tight text-sm">online</p>
         <Circle className="h-3 w-3 stroke-green-100 fill-green-400 animate-pulse" />
