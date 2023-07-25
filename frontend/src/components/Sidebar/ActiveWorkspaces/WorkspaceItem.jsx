@@ -8,9 +8,9 @@ function WorkspaceItem({ workspace, isActive, isDev, setSelectedWs, showModal })
   return (
     <div
       key={workspace.id}
-      className="flex flex-col gap-y-2 items-start justify-between w-full"
+      className="flex flex-col items-start justify-between w-full"
     >
-      <div className="flex items-center w-full hover:bg-slate-100">
+      <div className="flex items-center w-full hover:bg-slate-100 p-1">
         <div
           className="cursor-pointer hover:bg-slate-200"
           onClick={(e) => {
@@ -18,12 +18,15 @@ function WorkspaceItem({ workspace, isActive, isDev, setSelectedWs, showModal })
             setIsExpanded(!isExpanded);
           }}
         >
-          {isExpanded ? <ChevronDown /> : <ChevronRight />}
+          {isExpanded ?
+            <ChevronDown size={18} color={isActive ? "green" : "black"} /> :
+            <ChevronRight size={18} color={isActive ? "green" : "black"} />
+          }
         </div>
 
         <a
           href={isActive ? null : paths.workspace.chat(workspace.slug)}
-          className={`text-xs font-semibold ${
+          className={`flex items-center text-sm font-semibold w-full truncate ${
             isActive
               ? "text-secondary dark:bg-stone-600"
               : "hover:bg-slate-100  dark:hover:bg-stone-900 "

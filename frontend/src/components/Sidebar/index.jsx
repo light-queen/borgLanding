@@ -60,25 +60,29 @@ export default function Sidebar() {
             </div>
           </div>
 
-          {/* Primary Body */}
-          <div className="h-[100%] flex flex-col w-full justify-between pt-4 overflow-y-hidden">
-            <div className="h-auto sidebar-items dark:sidebar-items">
-              <div className="flex flex-row flex-wrap gap-y-4  pb-8 overflow-y-scroll no-scroll">
+	  {/* Primary Body */}
+		<div className="h-[100%] flex flex-col w-full justify-between pt-4 overflow-y-hidden">
+		  <div className="h-auto sidebar-items dark:sidebar-items">
+			<div className="flex flex-row flex-wrap gap-y-1 pb-8 overflow-y-scroll no-scroll">
 
-			    {isDev && <div className="flex gap-x-2 items-center justify-between">
-                  <button
-                    onClick={showNewWsModal}
-                    className="flex flex-grow w-[75%] h-[36px] gap-x-2 py-[5px] px-4 border border-slate-400 rounded-lg text-slate-800 dark:text-slate-200 justify-start items-center hover:bg-slate-100 dark:hover:bg-stone-900"
-                  >
-                    <Plus className="h-4 w-4" />
-                    <p className="text-slate-800 dark:text-slate-200 text-xs leading-loose font-semibold">
-                      New workspace
-                    </p>
-                  </button>
-                </div>}
-                <ActiveWorkspaces />
-              </div>
-            </div>
+
+			  <div className="mt-2  flex flex-col items-start justify-between w-full">
+				<div
+				  className="flex items-center w-full  p-1"
+				>
+				  <a
+					className="flex items-center text-sm font-semibold w-full truncate text-slate-500"
+				  >
+					Workspaces
+				  </a>
+				  <div className="cursor-pointer hover:bg-slate-100 p-1 rounded" onClick={showNewWsModal} >
+					<Plus size={18} />
+				  </div>
+				</div>
+			  </div>
+			  <ActiveWorkspaces />
+		  </div>
+		  </div>
             <div>
               <div className="flex flex-col gap-y-2">
                 <div className="w-full flex items-center justify-between">
