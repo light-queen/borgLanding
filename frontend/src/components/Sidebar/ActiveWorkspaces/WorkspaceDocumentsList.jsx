@@ -1,8 +1,9 @@
 import React from 'react';
+import { Book, FileText } from 'react-feather';
 
 function WorkspaceDocumentsList({ documents }) {
   return (
-    <ul className="list-disc ml-9">
+    <ul className="list-none ml-9">
       {documents && Array.isArray(documents) &&
         documents
           .filter((v, i, a) => {
@@ -22,7 +23,8 @@ function WorkspaceDocumentsList({ documents }) {
               docUrl = docUrl.replace("file:///app/collector/hotdir/processed/", "");
             }
             return (
-              <li key={doc.docpath} className="text-sm text-slate-600">
+              <li key={doc.docpath} className="text-sm text-slate-600 flex items-center">
+                <FileText size={16} className="mr-1" />
                 <div className="truncate">{docUrl}</div>
               </li>
             )
@@ -33,4 +35,3 @@ function WorkspaceDocumentsList({ documents }) {
 }
 
 export default WorkspaceDocumentsList;
-
