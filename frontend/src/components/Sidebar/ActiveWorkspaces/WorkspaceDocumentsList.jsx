@@ -1,9 +1,9 @@
 import React from 'react';
-import { Book, FileText } from 'react-feather';
+import { FileText } from 'react-feather';
 
 function WorkspaceDocumentsList({ documents }) {
   return (
-    <ul className="list-none ml-9">
+    <ul className="list-none ml-9 mt-2">
       {documents && Array.isArray(documents) &&
         documents
           .filter((v, i, a) => {
@@ -22,10 +22,15 @@ function WorkspaceDocumentsList({ documents }) {
             if (docUrl && docUrl.includes("file:///app/collector/hotdir/processed/")) {
               docUrl = docUrl.replace("file:///app/collector/hotdir/processed/", "");
             }
+			  // really ugly, but too hard to go change the database file name
+			  // TODO: how to rename docs?
+            if (docUrl && docUrl.includes("greenguides")) {
+              docUrl = docUrl.replace("greenguides", "FTC Green Guides");
+            }
             return (
-              <li key={doc.docpath} className="text-sm text-slate-600 flex items-center">
-                <FileText size={16} className="mr-1" />
-                <div className="truncate">{docUrl}</div>
+              <li key={doc.docpath} className="text-sm text-slate-600 flex items-start">
+                <FileText size={16} className="mr-2 flex-shrink-0" />
+                <div className="">{docUrl}</div>
               </li>
             )
           })
@@ -35,3 +40,4 @@ function WorkspaceDocumentsList({ documents }) {
 }
 
 export default WorkspaceDocumentsList;
+
