@@ -48,19 +48,35 @@ function WorkspaceItem({ workspace, isActive, isDev, setSelectedWs, showModal })
 
 	  {isExpanded && (
   <ul className="list-disc ml-9">
-    {workspace.documents && Array.isArray(workspace.documents) && workspace.documents.map((doc) => {
-      let docpath = doc.docpath;
-      if (docpath.includes("custom-documents/")) {
-        docpath = docpath.replace("custom-documents/", "");
-      }
-      return (
-        <li key={doc.docpath} className="text-sm text-slate-600">
-          <div className="truncate">{docpath}</div>
-        </li>
-      )
-    })}
+    {workspace.documents && Array.isArray(workspace.documents) &&
+      workspace.documents
+        .filter((v, i, a) => {
+          const metaV = v.metadata && JSON.parse(v.metadata);
+          return a.findIndex(t => {
+            const metaT = t.metadata && JSON.parse(t.metadata);
+            return (metaT.url) === (metaV.url);
+          }) === i
+        })
+        .map((doc) => {
+          let docUrl;
+          const docMeta = doc.metadata && JSON.parse(doc.metadata);
+          if (docMeta) {
+            docUrl = docMeta.url;
+          }
+          if (docUrl && docUrl.includes("file:///app/collector/hotdir/processed/")) {
+            docUrl = docUrl.replace("file:///app/collector/hotdir/processed/", "");
+          }
+		  console.log(docUrl);
+          return (
+            <li key={doc.docpath} className="text-sm text-slate-600">
+              <div className="truncate">{docUrl}</div>
+            </li>
+          )
+        })
+    }
   </ul>
 )}
+
 
     </div>
   );
