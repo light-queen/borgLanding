@@ -1,8 +1,6 @@
-# Ecocheckr | Grammarly for Enviromental Claims
+# Borg | Personalized Diagnosis Recommendations
 
 This is a fork of AnythingLLM (see below).
-
-Is deployed with digital ocean at <http://beta.ecocheckr.com>, here are the manual deployment steps.
 
 ```
 ssh root@104.236.2.221

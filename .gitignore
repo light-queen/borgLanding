@@ -19,3 +19,5 @@ yarn.lock
 # Ignore crash log files
 crash.log
 
+temp_auto_push.bat
+temp_interactive_push.bat
