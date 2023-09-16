@@ -8,7 +8,7 @@ export default function ChatHistory({ history = [], workspace }) {
       <div className="flex flex-col h-[89%] md:mt-0 pb-5 w-full justify-center items-center">
         <div className="w-fit flex items-center gap-x-2">
           <CheckSquare className="h-4 w-4 text-slate-400" />
-          <p className="text-slate-400">Ask Ecochecker about Environmental Claims.</p>
+          <p className="text-slate-400">Ask Borg any questions.</p>
         </div>
         <p className="text-slate-400 text-xs mt-3">
           A good example might be <b>"what should I take into consideration while making carbon offsets claims as a seller?"</b>
